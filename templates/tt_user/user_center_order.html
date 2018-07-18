@@ -1,6 +1,6 @@
 {%extends 'base.html'%}
 
-
+{% block title %}全部订单{% endblock title %}
 
 {%block content%}
 	<div class="main_con clearfix">
@@ -21,7 +21,7 @@
 
 					<li class="col01">{{order.createDate}}</li>
 					<li class="col02">订单号：{{ order.id }}</li>
-					<li class="col02 stress">{%if order.orderState == '1' %}已支付{%else%}未支付{%endif%}</li>
+					<li class="col02 stress">{%if order.orderState == '1' %}待付款{% elif order.orderState == '2' %}已支付{% elif order.orderState == '3' %}已取消{% endif %}</li>
 
 				</ul>
 
@@ -44,11 +44,14 @@
 							<td width="15%">{{order.total}}元</td>
 
                             {%if order.orderState == '1' %}
-                                <td width="15%">已付款</td>
-							    <td width="15%"><a href="#" class="oper_btn">查看</a></td>
-                            {% else %}
                                 <td width="15%">待付款</td>
-							    <td width="15%"><a href="/order/pay?id={{order.id}}&state=1" class="oper_btn">去付款</a></td>
+							    <td width="15%"><a href="/order/pay?id={{order.id}}&state=2" class="oper_btn">去付款</a></td>
+                            {% elif order.orderState == '2' %}
+                                <td width="15%">已支付</td>
+							    <td width="15%"><a href="#" class="oper_btn">查看</a></td>
+                            {% elif order.orderState == '3' %}
+                                <td width="15%">已取消</td>
+							    <td width="15%"><a href="#" class="oper_btn">查看</a></td>
                             {% endif %}
 
 						</tr>

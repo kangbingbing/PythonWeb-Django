@@ -11,7 +11,7 @@ class OrderInfo(models.Model):
     createDate=models.DateTimeField(auto_now_add=True)
     expiredDate = models.DateTimeField()
     payType=models.CharField(max_length=2,default='1')
-    orderState = models.CharField(max_length=2,default='1')
+    orderState = models.CharField(max_length=2,default='1')# 1 未支付 2 已支付 3 已过期
     total=models.DecimalField(max_digits=6,decimal_places=2)
     address=models.CharField(max_length=150)
 

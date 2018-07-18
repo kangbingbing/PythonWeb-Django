@@ -94,7 +94,11 @@ def pay(request):
     order_id = request.GET.get('id')
     state = request.GET.get('state')
     order = OrderInfo.objects.get(id=order_id)
-    order.orderState = state
+    # 如果过期就取消订单
+    if order.expiredDate < datetime.now():
+        order.orderState = '3'
+    else:
+        order.orderState = state
     order.save()
     return redirect('/user/order/')
 

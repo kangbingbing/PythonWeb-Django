@@ -14,7 +14,7 @@ from tt_user import user_verify
 def cart(request):
     uid=request.session['user_id']
     carts=ShopCart.objects.filter(user_id=uid)
-    print(carts)
+    # print(carts)
     context={'page_name':1,
              'carts':carts}
     return render(request,'tt_cart/cart.html',context)

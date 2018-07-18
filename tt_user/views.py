@@ -9,6 +9,7 @@ import user_verify
 from tt_goods.models import *
 from tt_order.models import *
 from django.core.paginator import Paginator,Page
+from datetime import datetime,timedelta
 
 # Create your views here.
 
@@ -107,11 +108,16 @@ def info(request):
     return render(request, 'tt_user/user_center_info.html', context)
 
 
+
+# 订单查询
 @user_verify.login
 def order(request,pindex):
 
     order_list = OrderInfo.objects.filter(user_id=request.session['user_id']).order_by('-id')
-    paginator = Paginator(order_list, 2)
+    for order in order_list:
+        if order.orderState == '1' and order.expiredDate < datetime.now():
+            order.orderState = '3'
+    paginator = Paginator(order_list, 5)
     if pindex == '':
         pindex = '1'
     page = paginator.page(int(pindex))
