@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>订单支付</title>
+</head>
+<body>
+<h1>这是模拟的一个支付页面</h1>
+订单编号：{{order.id}}<br>
+应付金额：{{order.total}}<br>
+付款成功，3秒后自动跳转
+<script>
+
+    setTimeout('location.href = "/order/pay/?state=1&id={{order.id}}"',3000)
+
+</script>
+</body>
+</html>

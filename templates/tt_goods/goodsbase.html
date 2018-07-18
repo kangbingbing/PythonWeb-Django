@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+{%block content%}
+
+	<div class="navbar_con">
+		<div class="navbar clearfix">
+			<div class="subnav_con fl">
+				<h1>全部商品分类</h1>
+				<span></span>
+				<ul class="subnav">
+					<li><a href="/more1_1_1/" class="fruit">新鲜水果</a></li>
+					<li><a href="/more2_1_1/" class="seafood">海鲜水产</a></li>
+					<li><a href="/more3_1_1/" class="meet">猪牛羊肉</a></li>
+					<li><a href="/more4_1_1/" class="egg">禽类蛋品</a></li>
+					<li><a href="/more5_1_1/" class="vegetables">新鲜蔬菜</a></li>
+					<li><a href="/more6_1_1/" class="ice">速冻食品</a></li>
+				</ul>
+			</div>
+			<ul class="navlist fl">
+				<li><a href="/">首页</a></li>
+				<li class="interval">|</li>
+				<li><a href="">手机生鲜</a></li>
+				<li class="interval">|</li>
+				<li><a href="">抽奖</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="breadcrumb">
+		&nbsp;&nbsp;全部分类&nbsp;>&nbsp;{{goodsType.gtitle}}
+        {%if id|default:'' != ''%}
+        &nbsp;>&nbsp;商品详情
+        {%endif%}
+	</div>
+
+{%block detail%}{%endblock detail%}
+
+	<div class="main_wrap clearfix">
+
+        <div class="l_wrap fl clearfix">
+			<div class="new_goods">
+				<h3>新品推荐</h3>
+				<ul>
+					{%for goods in newGoods %}
+					<li>
+						<a href="/{{goods.id}}/"><img src="/static/{{goods.pic}}"></a>
+						<h4><a href="/{{goods.id}}/">{{goods.title}}</a></h4>
+						<div class="prize">￥{{goods.price}}</div>
+					</li>
+					{%endfor%}
+				</ul>
+			</div>
+		</div>
+
+		{%block detail2%}{%endblock detail2%}
+
+	</div>
+
+{%endblock content%}

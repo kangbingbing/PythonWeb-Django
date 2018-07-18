@@ -1,0 +1,87 @@
+{%extends 'base.html'%}
+
+
+
+{%block content%}
+	<div class="main_con clearfix">
+		<div class="left_menu_con clearfix">
+			<h3>用户中心</h3>
+
+            <ul>
+				<li><a href="/user/info/">· 个人信息</a></li>
+				<li><a href="/user/order/" class="active">· 全部订单</a></li>
+				<li><a href="/user/address/">· 收货地址</a></li>
+			</ul>
+		</div>
+		<div class="right_content clearfix">
+				<h3 class="common_title2">全部订单</h3>
+
+        {% for order in page %}
+				<ul class="order_list_th w978 clearfix">
+
+					<li class="col01">{{order.createDate}}</li>
+					<li class="col02">订单号：{{ order.id }}</li>
+					<li class="col02 stress">{%if order.orderState == '1' %}已支付{%else%}未支付{%endif%}</li>
+
+				</ul>
+
+				<table class="order_list_table w980">
+					<tbody>
+						<tr>
+							<td width="55%">
+
+
+                                {%for detail in order.orderdetail_set.all%}
+								<ul class="order_goods_list clearfix">					
+									<li class="col01"><img src="/static/{{detail.goods.pic}}"></li>
+									<li class="col02">{{detail.goods.title}}<em>{{detail.goods.price}}元/{{detail.goods.unit}}</em></li>
+									<li class="col03">{{detail.count}}</li>
+									<li class="col04">{{detail.price}}元</li>
+								</ul>
+
+                                {% endfor %}
+							</td>
+							<td width="15%">{{order.total}}元</td>
+
+                            {%if order.orderState == '1' %}
+                                <td width="15%">已付款</td>
+							    <td width="15%"><a href="#" class="oper_btn">查看</a></td>
+                            {% else %}
+                                <td width="15%">待付款</td>
+							    <td width="15%"><a href="/order/pay?id={{order.id}}&state=1" class="oper_btn">去付款</a></td>
+                            {% endif %}
+
+						</tr>
+					</tbody>
+				</table>
+				
+
+        {% endfor %}
+
+
+
+				<div class="pagenation">
+
+                    {% if page.has_previous %}
+                    <a href="/user/order{{page.previous_page_number}}/"><上一页</a>
+                    {% endif %}
+
+                    {%for pindex in paginator.page_range%}
+                        {%if pindex == page.number%}
+                        <a href="#" class="active">{{pindex}}</a>
+                        {%else%}
+                        <a href="/user/order{{pindex}}/">{{pindex}}</a>
+                        {%endif%}
+                    {%endfor%}
+
+                    {%if page.has_next%}
+                        <a href="/user/order{{page.next_page_number}}/">下一页></a>
+                    {%endif%}
+
+				</div>
+		</div>
+	</div>
+
+
+
+{%endblock content%}
