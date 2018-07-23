@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from tinymce.models import HTMLField
 
 # Create your models here.
 
@@ -28,3 +29,4 @@ class GoodsDetail(models.Model):
     details = models.TextField()
     goodsType = models.ForeignKey(GoodsType)
     ad = models.BooleanField(default=False)
+    content = HTMLField()

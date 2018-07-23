@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'tt_user.apps.TtUserConfig',
     'tt_goods',
     'tt_cart',
-    'tt_order'
+    'tt_order',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -113,7 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
-
 LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
@@ -136,3 +136,10 @@ STATICFILES_DIRS=[
 MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 # 布署后的上传文件目录
 # MEDIA_ROOT='/var/www/dailyfresh/static'
+
+
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'advanced',
+    'width': 600,
+    'height': 400,
+}
