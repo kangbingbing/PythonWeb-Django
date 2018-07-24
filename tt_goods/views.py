@@ -93,3 +93,13 @@ def cart_count(request):
         return ShopCart.objects.filter(user_id=request.session['user_id']).count()
     else:
         return 0
+
+
+from haystack.views import SearchView
+class MySearchView(SearchView):
+    def extra_context(self):
+        context = super(MySearchView, self).extra_context()
+        context['title']= '搜索'
+        context['guest_cart']=1
+        context['cart_count']=cart_count(self.request)
+        return context
