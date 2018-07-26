@@ -41,19 +41,26 @@
 
 	<div class="center_con clearfix">
 		<ul class="subnav fl">
-			<li><a href="#model01" class="fruit">新鲜水果</a></li>
-			<li><a href="#model02" class="seafood">海鲜水产</a></li>
-			<li><a href="#model03" class="meet">猪牛羊肉</a></li>
-			<li><a href="#model04" class="egg">禽类蛋品</a></li>
-			<li><a href="#model05" class="vegetables">新鲜蔬菜</a></li>
-			<li><a href="#model06" class="ice">速冻食品</a></li>
+			<li><a href="#model01" class="fruit">{{goodsArray.0.goodsType.gtitle}}</a></li>
+			<li><a href="#model02" class="seafood">{{goodsArray.1.goodsType.gtitle}}</a></li>
+			<li><a href="#model03" class="meet">{{goodsArray.2.goodsType.gtitle}}</a></li>
+			<li><a href="#model04" class="egg">{{goodsArray.3.goodsType.gtitle}}</a></li>
+			<li><a href="#model05" class="vegetables">{{goodsArray.4.goodsType.gtitle}}</a></li>
+			<li><a href="#model06" class="ice">{{goodsArray.5.goodsType.gtitle}}</a></li>
+
+
 		</ul>
 		<div class="slide fl">
 			<ul class="slide_pics">
-				<li><img src="/static/images/slide.jpg" alt="幻灯片"></li>
-				<li><img src="/static/images/slide02.jpg" alt="幻灯片"></li>
-				<li><img src="/static/images/slide03.jpg" alt="幻灯片"></li>
-				<li><img src="/static/images/slide04.jpg" alt="幻灯片"></li>
+
+                {%for banner in banners%}
+                    <li><img src="{{banner.banner_url}}" alt="幻灯片"></li>
+                {%endfor%}
+
+{#				<li><img src="/static/images/slide.jpg" alt="幻灯片"></li>#}
+{#				<li><img src="/static/images/slide02.jpg" alt="幻灯片"></li>#}
+{#				<li><img src="/static/images/slide03.jpg" alt="幻灯片"></li>#}
+{#				<li><img src="/static/images/slide04.jpg" alt="幻灯片"></li>#}
 			</ul>
 			<div class="prev"></div>
 			<div class="next"></div>
@@ -84,16 +91,18 @@
 			<a href="/more{{goods.goodsType.id}}_1_1/" class="goods_more fr" id="fruit_more">查看更多 ></a>
 		</div>
 
+        {#下面的子分类 banner#}
 		<div class="goods_con clearfix">
-			<div class="goods_banner fl"><img src="/static/images/banner0{{forloop.counter}}.jpg"></div>
+{#			<div class="goods_banner fl"><img src="/static/images/banner0{{forloop.counter}}.jpg"></div>#}
+        <div class="goods_banner fl"><img src="{{goods.goodsType.pic_url}}"></div>
 			<ul class="goods_list fl">
 
                 {%for good in goods.goods%}
 
                     <li>
 					<h4><a href="/{{good.id}}/">{{ good.title }}</a></h4>
-					<a href="/{{good.id}}/"><img src="/static/images/{{ good.pic }}"></a>
-					<div class="prize">{{ good.price }}</div>
+					<a href="/{{good.id}}/"><img src="/static/{{ good.pic }}"></a>
+					<div class="prize">¥ {{ good.price }}</div>
 				    </li>
 
                 {% endfor %}

@@ -10,6 +10,7 @@ from tt_cart.models import *
 
 def index(request):
     goodsTypeList = GoodsType.objects.all()
+    banner_list = Banner.objects.all()
 
     goodsArray = []
     for type in goodsTypeList:
@@ -21,7 +22,7 @@ def index(request):
 
     # print goodsArray
 
-    context = {'guest_cart': 1,'goodsArray':goodsArray,'cart_count':cart_count(request)}
+    context = {'guest_cart': 1,'goodsArray':goodsArray,'cart_count':cart_count(request),'banners':banner_list}
 
     return render(request, 'tt_goods/index.html',context)
 
