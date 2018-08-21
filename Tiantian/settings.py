@@ -26,7 +26,7 @@ SECRET_KEY = 'yz!lu)vc&$k*$*8drkm1j_(#ugrw^gbml3rwqz(5(yado1cbu&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -136,7 +136,7 @@ STATICFILES_DIRS=[
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 # 布署后的上传文件目录
-# MEDIA_ROOT='/var/www/dailyfresh/static'
+STATIC_ROOT='/var/www/tiantian/static/'
 
 
 TINYMCE_DEFAULT_CONFIG = {
