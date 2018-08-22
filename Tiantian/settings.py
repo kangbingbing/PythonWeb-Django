@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'tt_cart',
     'tt_order',
     'tinymce',
-    'haystack',
+    #'haystack',
 ]
 
 MIDDLEWARE = [

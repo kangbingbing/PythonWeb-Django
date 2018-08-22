@@ -96,11 +96,32 @@ def cart_count(request):
         return 0
 
 
-from haystack.views import SearchView
-class MySearchView(SearchView):
-    def extra_context(self):
-        context = super(MySearchView, self).extra_context()
-        context['title']= '搜索'
-        context['guest_cart']=1
-        context['cart_count']=cart_count(self.request)
-        return context
+def search(request):
+    keywords = request.GET['q']
+    page = request.GET.get('page','1')
+
+
+    print(type(page))
+
+    searchGoods = GoodsDetail.objects.filter(title__contains=keywords)
+
+    print(searchGoods)
+
+    paginator = Paginator(searchGoods, 15)
+    pageGoods = paginator.page(int(page))
+
+    context = {'page': pageGoods,
+               'paginator': paginator,
+               'cart_count': cart_count(request)}
+
+    return render(request,'search/search.html',context)
+
+
+#from haystack.views import SearchView
+#class MySearchView(SearchView):
+#    def extra_context(self):
+#        context = super(MySearchView, self).extra_context()
+#        context['title']= '搜索'
+#        context['guest_cart']=1
+#        context['cart_count']=cart_count(self.request)
+#        return context

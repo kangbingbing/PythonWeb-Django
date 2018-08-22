@@ -34,12 +34,12 @@
         <ul class="goods_type_list clearfix">
 				{%for item in page%}
 				<li>
-					<a href="/{{item.object.id}}/"><img src="/static/{{item.object.pic}}"></a>
-					<h4><a href="/{{item.object.id}}/">{{g.title}}</a></h4>
+					<a href="/{{item.id}}/"><img src="/static/{{item.pic}}"></a>
+					<h4><a href="/{{item.id}}/">{{item.title}}</a></h4>
 					<div class="operate">
-						<span class="prize">￥{{item.object.price}}</span>
-						<span class="unit">{{item.object.unit}}</span>
-						<a href="/cart/add{{item.object.id}}_1/" class="add_goods" title="加入购物车"></a>
+						<span class="prize">￥{{item.price}}</span>
+						<span class="unit">{{item.unit}}</span>
+						<a href="/cart/add{{item.id}}_1/" class="add_goods" title="加入购物车"></a>
 					</div>
 				</li>
 				{%endfor%}
