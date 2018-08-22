@@ -5,6 +5,9 @@
 ![](https://img.shields.io/badge/Django-1.11-green.svg)
 ![](https://img.shields.io/badge/MySQL-5.7.22-orange.svg)
 
+
+#### 网站已部署到服务器 -> [查看](http://youcai.tk)
+
 自学 Python 过程中练习的电商项目, 商品数据及图片从电商网站爬的。可参考 -> [链接](https://github.com/kangbingbing/Python/blob/master/dianshang.py)
 
 
@@ -72,7 +75,10 @@ DATABASES = {
 
 ## 展示图
 
-<img src="https://ws1.sinaimg.cn/large/9e1008a3ly1ftnchtn232j21y419ykjn.jpg" width="500" hegiht="339"/>
-<img src="https://ws1.sinaimg.cn/large/9e1008a3ly1ftnchqn33sj21y61fmhdu.jpg" width="500" hegiht="339"/>
-<img src="https://ws1.sinaimg.cn/large/9e1008a3ly1ftncg8ce89j221m1gcnpd.jpg" width="500" hegiht="339"/>
-<img src="https://ws1.sinaimg.cn/large/9e1008a3ly1ftnchpqx47j21xu1eealx.jpg" width="500" hegiht="339"/>
+<img src="https://ws1.sinaimg.cn/large/9e1008a3ly1ftnchtn232j21y419ykjn.jpg" width="600" hegiht="400"/>
+
+<img src="https://ws1.sinaimg.cn/large/9e1008a3ly1ftnchqn33sj21y61fmhdu.jpg" width="600" hegiht="400"/>
+
+<img src="https://ws1.sinaimg.cn/large/9e1008a3ly1ftncg8ce89j221m1gcnpd.jpg" width="600" hegiht="400"/>
+
+<img src="https://ws1.sinaimg.cn/large/9e1008a3ly1ftnchpqx47j21xu1eealx.jpg" width="600" hegiht="400"/>
