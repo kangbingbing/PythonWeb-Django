@@ -54,8 +54,10 @@
 			<ul class="slide_pics">
 
                 {%for banner in banners%}
-                    <li><img src="{{banner.banner_url}}" alt="幻灯片"></li>
+{#                    <li><img src="{{banner.banner_url}}" alt="幻灯片"></li>#}
+                    <li><img src="/static/{{banner.banner_pic}}" alt="幻灯片"></li>
                 {%endfor%}
+
 
 {#				<li><img src="/static/images/slide.jpg" alt="幻灯片"></li>#}
 {#				<li><img src="/static/images/slide02.jpg" alt="幻灯片"></li>#}
@@ -93,8 +95,8 @@
 
         {#下面的子分类 banner#}
 		<div class="goods_con clearfix">
-{#			<div class="goods_banner fl"><img src="/static/images/banner0{{forloop.counter}}.jpg"></div>#}
-        <div class="goods_banner fl"><img src="{{goods.goodsType.pic_url}}"></div>
+            <div class="goods_banner fl"><img src="/static/{{goods.goodsType.pic_path}}"></div>
+{#        <div class="goods_banner fl"><img src="{{goods.goodsType.pic_url}}"></div>#}
 			<ul class="goods_list fl">
 
                 {%for good in goods.goods%}
