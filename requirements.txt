@@ -1,6 +1,6 @@
 certifi==2018.4.16
 chardet==3.0.4
-Django==1.11.14
+Django==1.11.23
 django-haystack==2.8.1
 django-tinymce==2.7.0
 gfwlist2pac==1.1.3
